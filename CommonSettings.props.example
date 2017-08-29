@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <ImportGroup Label="PropertySheets" />
+    <PropertyGroup Label="UserMacros">
+        <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+        <IntDir>tmp\$(Platform)\$(Configuration)\</IntDir>
+    </PropertyGroup>
+    <PropertyGroup>
+        <LibraryPath>F:\Prj\OpenCV\opencv-3.2.0\build\install\x64\vc12\lib;$(LibraryPath)</LibraryPath>
+        <IncludePath>F:\Prj\OpenCV\opencv-3.2.0\build\install\include;$(IncludePath)</IncludePath>
+    </PropertyGroup>
+	<ItemDefinitionGroup Condition="'$(ProjectName)'!='common'">
+        <ClCompile>
+			<AdditionalIncludeDirectories>$(SolutionDir)common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+        </ClCompile>
+	    <Link>
+            <AdditionalDependencies>common.lib;%(AdditionalDependencies)</AdditionalDependencies>
+			<AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+        </Link>
+	</ItemDefinitionGroup>
+    <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+        <ClCompile>
+			<Optimization>Maximize Speed (/O2)</Optimization>
+            <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;USE_OPENCV;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+			<SecurityCheck>Disable Security Check (/GS-)</SecurityCheck>
+            <TreatWarningAsError>No (/WX-)</TreatWarningAsError>
+        </ClCompile>
+	    <Link>
+            <EnableCOMDATFolding>true</EnableCOMDATFolding>
+            <GenerateDebugInformation>true</GenerateDebugInformation>
+            <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+            <OptimizeReferences>true</OptimizeReferences>
+        </Link>
+    </ItemDefinitionGroup>
+</Project>
