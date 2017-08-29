@@ -1,0 +1,8 @@
+$(SolutionDir)bin\$(Platform)\$(Configuration)\
+tmp\$(Platform)\$(Configuration)\
+F:\Prj\OpenCV\opencv-3.2.0\build\install\x64\vc12\bin;$(ExecutablePath)
+F:\Prj\OpenCV\opencv-3.2.0\build\install\include;$(IncludePath)
+F:\Prj\OpenCV\opencv-3.2.0\build\install\x64\vc12\lib;$(LibraryPath)
+$(SolutionDir)common;%(AdditionalIncludeDirectories)
+common.lib
+WIN32;NDEBUG;_CONSOLE;_LIB;USE_OPENCV;%(PreprocessorDefinitions)
